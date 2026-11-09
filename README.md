@@ -1,45 +1,35 @@
-# MNIST Digit Classification with Deep Neural Networks
 
-## 1. Workflow
-The project follows a structured machine learning pipeline designed to construct, evaluate, and optimize a Deep Neural Network (DNN) for digit classification using the MNIST dataset:
-*   **Environment Setup:** Initialized necessary libraries (TensorFlow, NumPy, Matplotlib, Pandas, Seaborn, scikit-learn) and established global random seeds to ensure experiment reproducibility.
-*   **Data Preparation:** Loaded the MNIST dataset, reshaped the 28x28 pixel images into 1D arrays (784 features), and applied one-hot encoding to the target labels.
-*   **Exploratory Data Analysis:** Visualized random samples from the training set to verify data integrity and class representation.
-*   **Baseline Modeling:** Constructed an initial Sequential model to establish baseline performance metrics.
-*   **Hyperparameter Tuning:** Developed a secondary "playground" model to experiment with neuron counts, learning rates, epochs, and activation functions.
-*   **Validation & Error Analysis:** Evaluated the tuned model against unseen test data. Generated a confusion matrix and plotted specific misclassified digits alongside their true labels to identify the model's weak points.
-*   **Workflow Improvements:** Implemented a final optimized architecture integrating data normalization (rescaling), Batch Normalization layers to stabilize training, and an Early Stopping callback to prevent overfitting and optimize computational cost.
 
-## 2. Final Model Architecture
-The optimized neural network utilizes a Sequential architecture designed for robust feature extraction and classification:
-*   **Input:** 784-dimensional vector (flattened 28x28 images).
-*   **Preprocessing Layer:** Rescaling Layer (scales pixel values by `1./255`).
-*   **Hidden Layer 1:** Dense Layer (512 units, ReLU activation).
-*   **Normalization 1:** Batch Normalization Layer.
-*   **Hidden Layer 2:** Dense Layer (512 units, ReLU activation).
-*   **Normalization 2:** Batch Normalization Layer.
-*   **Output Layer:** Dense Layer (10 units, Softmax activation).
+---
 
-## 3. Selected Hyperparameters
-The final model configuration leverages the following hyperparameter suite, determined through iterative tuning and performance monitoring:
-*   **Optimizer:** Stochastic Gradient Descent (SGD)
-*   **Learning Rate:** 0.01
-*   **Loss Function:** Categorical Cross-Entropy
-*   **Metrics Monitored:** Accuracy
-*   **Maximum Epochs:** 50
-*   **Early Stopping:** Monitored on `val_loss` with a patience of 5 epochs (restoring best weights upon completion).
-*   **Hidden Activation:** ReLU (Rectified Linear Unit)
-*   **Output Activation:** Softmax
+# 🧠 MNIST Digit Classification Neural Network
 
-## 4. Requirements
-The following specifications and library versions reflect the development environment used for training and deployment:
+A multi-class deep learning model built to accurately classify handwritten digits from the MNIST dataset. This project focuses on implementing robust training controls and rigorous model evaluation techniques.
 
-```text
-# Python 3.10 environment
+## 📖 Overview
 
-tensorflow==2.15.0
-numpy
-pandas
-matplotlib
-seaborn
-scikit-learn
+This repository contains a complete pipeline for loading image data, defining a dense neural network architecture, training the model with specific optimization constraints, and visualizing the final predictive performance.
+
+## ✨ Key Features
+
+*   **Deep Neural Network Architecture:** Built using TensorFlow and Keras to process $28 \times 28$ pixel grayscale images into 10 distinct digit classes.
+*   **Early Stopping Implementation:** Integrates Keras callbacks to monitor validation loss during training, automatically halting epochs when performance degrades to prevent overfitting.
+*   **Performance Visualization:** Generates a detailed confusion matrix upon test evaluation, allowing for granular analysis of false positives and classification bottlenecks across specific digits.
+*   **Optimized Pipeline:** Handles data normalization, one-hot encoding, and batch processing efficiently.
+
+## 🛠️ Tech Stack
+
+*   **Language:** Python
+*   **Machine Learning Framework:** TensorFlow, Keras
+*   **Data Processing & Visualization:** NumPy, Matplotlib, Scikit-learn
+
+## 🏁 Getting Started
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-link>
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
